@@ -1,0 +1,17 @@
+{
+  "name": "rails_live_dashboard",
+  "version": "0.0.1",
+  "description": "Realtime dashboard for Rails applications",
+  "scripts": {
+    "build": "esbuild app/assets/javascripts/rails_live_dashboard/*.* --bundle --sourcemap --minify --format=esm --outdir=app/assets/builds/rails_live_dashboard",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/rails_live_dashboard/application.css -o ./app/assets/builds/rails_live_dashboard/application.css --minify"
+  },
+  "author": "Anderson Dalmina",
+  "license": "MIT",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.2",
+    "esbuild": "^0.20.0",
+    "tailwindcss": "^3.4.1"
+  }
+}
