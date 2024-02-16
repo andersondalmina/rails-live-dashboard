@@ -1,5 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./app/views/**/*.html.erb", "./app/helpers/**/*.rb"],
+  content: [
+    "./app/components/**/*.html.erb",
+    "./app/components/**/*.rb",
+    "./app/views/**/*.html.erb",
+    "./app/helpers/**/*.rb",
+  ],
   theme: {},
 };

@@ -5,14 +5,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gemspec
 
 gem "puma"
-
 gem "sqlite3"
-
 gem "turbo-rails"
 gem "propshaft"
 gem "jsbundling-rails"
 gem "stimulus-rails"
 gem "cssbundling-rails"
-
-# Start debugger with binding.b [https://github.com/ruby/debug]
-# gem "debug", ">= 1.0.0"
+gem "view_component"
+gem "lucide-rails", "~> 0.2.0"

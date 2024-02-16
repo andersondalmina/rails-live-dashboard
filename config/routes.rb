@@ -1,7 +1,8 @@
 RailsLiveDashboard::Engine.routes.draw do
-  root to: "home#show"
+  root to: "dashboard#show"
 
-  resource :home, only: [:show], controller: :home
+  resource :dashboard, only: [:show], controller: :dashboard
+  resource :clean, only: [:destroy], controller: :clean
   resources :requests, only: [:index, :show]
   resources :exceptions, only: [:index, :show]
 end

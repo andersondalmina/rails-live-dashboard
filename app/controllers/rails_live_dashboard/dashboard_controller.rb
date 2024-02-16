@@ -1,5 +1,5 @@
 module RailsLiveDashboard
-  class HomeController < ApplicationController
+  class DashboardController < ApplicationController
     def show
       @ruby_version = RUBY_VERSION
       @rails_version = Rails.version

@@ -1,4 +1,4 @@
 module RailsLiveDashboard
-  module HomeHelper
+  module CleanHelper
   end
 end
