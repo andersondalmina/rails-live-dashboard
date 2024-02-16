@@ -22,9 +22,7 @@ module RailsLiveDashboard
     initializer 'rails_live_dashboard.action_controller' do
       next unless RailsLiveDashboard.configuration.enabled
 
-      ActiveSupport.on_load(:action_controller) do
-        Subscribers::ActionControllerSubscriber.new
-      end
+      Subscribers::ActionControllerSubscriber.new
     end
   end
 end
