@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails-live-dashboard (0.0.1)
+    rails_live_dashboard (0.1.0)
       rails (>= 7.1.3)
 
 GEM
@@ -81,7 +81,15 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
+    ast (2.4.2)
     base64 (0.2.0)
+    better_html (2.0.2)
+      actionview (>= 6.0)
+      activesupport (>= 6.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      parser (>= 2.4)
+      smart_properties
     bigdecimal (3.1.6)
     builder (3.2.4)
     concurrent-ruby (1.2.3)
@@ -92,6 +100,13 @@ GEM
     date (3.3.4)
     drb (2.2.0)
       ruby2_keywords
+    erb_lint (0.5.0)
+      activesupport
+      better_html (>= 2.0.1)
+      parser (>= 2.7.1.4)
+      rainbow
+      rubocop
+      smart_properties
     erubi (1.12.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -103,6 +118,8 @@ GEM
       reline (>= 0.4.2)
     jsbundling-rails (1.3.0)
       railties (>= 6.0.0)
+    json (2.7.1)
+    language_server-protocol (3.17.0.3)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -130,6 +147,10 @@ GEM
     nio4r (2.7.0)
     nokogiri (1.16.2-x86_64-darwin)
       racc (~> 1.4)
+    parallel (1.24.0)
+    parser (3.3.0.5)
+      ast (~> 2.4.1)
+      racc
     propshaft (0.8.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -177,12 +198,30 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
+    rainbow (3.1.1)
     rake (13.1.0)
     rdoc (6.6.2)
       psych (>= 4.0.0)
+    regexp_parser (2.9.0)
     reline (0.4.2)
       io-console (~> 0.5)
+    rexml (3.2.6)
+    rubocop (1.60.2)
+      json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
+      parallel (~> 1.10)
+      parser (>= 3.3.0.2)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.30.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.30.0)
+      parser (>= 3.2.1.0)
+    ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
+    smart_properties (1.17.0)
     sqlite3 (1.7.2-x86_64-darwin)
     stimulus-rails (1.3.3)
       railties (>= 6.0.0)
@@ -195,6 +234,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.5.0)
     view_component (3.10.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
@@ -210,11 +250,13 @@ PLATFORMS
 
 DEPENDENCIES
   cssbundling-rails
+  erb_lint
   jsbundling-rails
   lucide-rails (~> 0.2.0)
   propshaft
   puma
-  rails-live-dashboard!
+  rails_live_dashboard!
+  rubocop
   sqlite3
   stimulus-rails
   turbo-rails

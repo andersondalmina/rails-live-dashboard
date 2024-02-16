@@ -15,7 +15,7 @@ module RailsLiveDashboard
 
       app.config.assets.precompile += [
         'builds/rails_live_dashboard/application.js',
-        'builds/rails_live_dashboard/application.css',
+        'builds/rails_live_dashboard/application.css'
       ]
     end
 

@@ -19,16 +19,16 @@ module RailsLiveDashboard
             params: payload[:params],
             format:	payload[:format],
             method:	payload[:method],
-            path: payload[:path],            
+            path: payload[:path],
             status:	payload[:status],
             headers: request.headers.env.reject { |key| key.to_s.include?('.') },
             body: response.body || nil,
             duration: @event.duration,
             view_duration: payload[:view_runtime],
             db_duration: payload[:db_runtime],
-            allocations: @event.allocations,
+            allocations: @event.allocations
           }
-        )  
+        )
       end
     end
   end

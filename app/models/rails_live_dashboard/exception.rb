@@ -3,27 +3,27 @@ module RailsLiveDashboard
     scope :of_class, ->(exception_class) { where("content->>'class' = ?", exception_class) }
 
     def class_name
-      self.content['class']
+      content['class']
     end
 
     def message
-      self.content['message']
+      content['message']
     end
 
     def occurrences
-      self.content['occurrences']
+      content['occurrences']
     end
 
     def file
-      self.content['file']
+      content['file']
     end
 
     def line
-      self.content['line']
+      content['line']
     end
 
     def backtrace
-      self.content['backtrace']
+      content['backtrace']
     end
   end
 end

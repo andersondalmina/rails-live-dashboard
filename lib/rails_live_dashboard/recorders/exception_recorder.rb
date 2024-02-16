@@ -7,7 +7,7 @@ module RailsLiveDashboard
       end
 
       def execute
-        Exception.transaction do 
+        Exception.transaction do
           Exception.of_class(@exception.class).update_all(should_show: false)
 
           occurrences = Exception.of_class(@exception.class).count
@@ -17,12 +17,12 @@ module RailsLiveDashboard
             content: {
               class: @exception.class,
               message: @exception.message,
-              file: @exception.backtrace[0].split(":").first,
-              line: @exception.backtrace[0].split(":")[1],
+              file: @exception.backtrace[0].split(':').first,
+              line: @exception.backtrace[0].split(':')[1],
               backtrace: @exception.backtrace,
-              occurrences: occurrences + 1,
+              occurrences: occurrences + 1
             }
-          )     
+          )
         end
       end
     end

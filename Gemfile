@@ -1,15 +1,20 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Specify your gem's dependencies in rails_live_dashboard.gemspec.
 gemspec
 
-gem "puma"
-gem "sqlite3"
-gem "turbo-rails"
-gem "propshaft"
-gem "jsbundling-rails"
-gem "stimulus-rails"
-gem "cssbundling-rails"
-gem "view_component"
-gem "lucide-rails", "~> 0.2.0"
+gem 'cssbundling-rails'
+gem 'jsbundling-rails'
+gem 'lucide-rails', '~> 0.2.0'
+gem 'propshaft'
+gem 'puma'
+gem 'sqlite3'
+gem 'stimulus-rails'
+gem 'turbo-rails'
+gem 'view_component'
+
+group :development do
+  gem 'erb_lint', require: false
+  gem 'rubocop', require: false
+end

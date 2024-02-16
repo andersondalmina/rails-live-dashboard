@@ -1,43 +1,43 @@
 module RailsLiveDashboard
   class Request < Entry
     def method
-      self.content['method']
+      content['method']
     end
 
     def path
-      self.content['path']
+      content['path']
     end
 
     def status_code
-      self.content['status']
+      content['status']
     end
 
     def controller
-      self.content["controller"]
+      content['controller']
     end
 
     def controller_action
-      self.content["action"]
+      content['action']
     end
 
     def duration
-      self.content["duration"].round
+      content['duration'].round
     end
 
     def payload
-      self.content["params"]
+      content['params']
     end
 
     def headers
-      self.content["headers"]
+      content['headers']
     end
 
     def body
-      self.content["body"]
+      content['body']
     end
 
     def turbo_stream?
-      self.content["format"] == "turbo_stream"
+      content['format'] == 'turbo_stream'
     end
   end
 end
