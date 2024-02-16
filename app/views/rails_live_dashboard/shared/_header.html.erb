@@ -1,0 +1,41 @@
+<header class="bg-gray-800" data-controller="reveal">
+  <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
+    <div class="relative flex h-16 justify-between">
+      <div class="relative z-10 flex px-2 lg:px-0">
+        <div class="flex flex-shrink-0 items-center">
+          <h1 class="text-xl text-white">Live Dashboard</h1>
+        </div>
+      </div>
+      <div class="relative z-10 flex items-center lg:hidden">
+        <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" data-action="click->reveal#toggle">
+          <%= lucide_icon('menu', class: 'block h-6 w-6', 'data-reveal-target': 'item') %>
+          <%= lucide_icon('x', class: 'hidden h-6 w-6', 'data-reveal-target': 'item') %>
+        </button>
+      </div>
+      <div class="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
+        <%= link_to clean_path, title: 'Clear all data', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white' do %>
+          <span class="sr-only">Clear records</span>
+          <%= lucide_icon('trash', class: 'h-6 w-6') %>
+        <% end %>
+      </div>
+    </div>
+
+    <nav class="hidden lg:flex lg:space-x-8 lg:py-2" aria-label="Global">
+      <%= link_to 'Dashboard', dashboard_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(dashboard_path)) %>
+      <%= link_to 'Requests', requests_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(requests_path)) %>
+      <%= link_to 'Exceptions', exceptions_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(exceptions_path)) %>
+    </nav>
+  </div>
+
+  <nav class="hidden" aria-label="Global" id="mobile-menu" data-reveal-target="item">
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <%= link_to 'Clear all data', clean_path, title: 'Clear all data', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium' %>
+    </div>
+    <hr class='my-2 border-gray-500' />
+    <div class="space-y-1 px-2 pb-3 pt-2">  
+      <%= link_to 'Dashboard', dashboard_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(dashboard_path)) %>
+      <%= link_to 'Requests', requests_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(requests_path)) %>
+      <%= link_to 'Exceptions', exceptions_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(exceptions_path)) %>
+    </div>
+  </nav>
+</header>

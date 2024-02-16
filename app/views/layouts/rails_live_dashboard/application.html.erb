@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rails live dashboard</title>
+  <title>Rails Live Dashboard</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    "rails_live_dashboard/application", media: "all" %>
+  <%= stylesheet_link_tag    "rails_live_dashboard/application", data_turbo_track: 'reload', media: "all" %>
+  <%= javascript_include_tag "rails_live_dashboard/application", data_turbo_track: 'reload', defer: true %>
 </head>
-<body>
+<body class="bg-gray-200 pb-10">
+  <%= render partial: "rails_live_dashboard/shared/header" %>
 
-<%= yield %>
-
+  <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <%= yield %>
+  </main>
 </body>
 </html>
