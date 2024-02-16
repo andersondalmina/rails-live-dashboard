@@ -1,7 +1,7 @@
 require_relative "lib/rails_live_dashboard/version"
 
 Gem::Specification.new do |spec|
-  spec.name        = "rails-live-dashboard"
+  spec.name        = "rails_live_dashboard"
   spec.version     = RailsLiveDashboard::VERSION
   spec.authors     = ["Anderson Dalmina"]
   spec.email       = ["andersondalmina@gmail.com"]
