@@ -12,9 +12,9 @@ module RailsLiveDashboard
       option: 'fill-purple-500',
     }
 
-    def initialize(method)
-      @method = method
-      @classes = CLASSES[@method.downcase.to_sym]
+    def initialize(method, turbo_stream = false)
+      @classes = CLASSES[method.downcase.to_sym]
+      @method = "#{method} #{ '- Turbo Stream' if turbo_stream }"
     end
   end
 end

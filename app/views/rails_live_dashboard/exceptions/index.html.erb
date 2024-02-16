@@ -15,6 +15,14 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 bg-white">
+            <% if @exceptions.empty? %>
+              <tr>
+                <td colspan="4">
+                  <p class="p-5 text-center">No exception registered</p>
+                </td>
+              </tr>
+            <% end %>
+
             <% @exceptions.each do |exception| %>
               <tr>
                   <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">

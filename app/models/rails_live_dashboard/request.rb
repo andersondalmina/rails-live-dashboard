@@ -32,8 +32,12 @@ module RailsLiveDashboard
       self.content["headers"]
     end
 
-    def response
-      self.content["response"]
+    def body
+      self.content["body"]
+    end
+
+    def turbo_stream?
+      self.content["format"] == "turbo_stream"
     end
   end
 end

@@ -16,6 +16,14 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 bg-white">
+              <% if @requests.empty? %>
+                <tr>
+                  <td colspan="5">
+                    <p class="p-5 text-center">No request registered</p>
+                  </td>
+                </tr>
+              <% end %>
+              
               <% @requests.each do |req| %>
               <tr>
                 <td class="whitespace-nowrap py-4 pl-4 pr-3 sm:pl-6">
