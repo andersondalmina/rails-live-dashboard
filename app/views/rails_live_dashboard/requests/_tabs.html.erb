@@ -12,15 +12,15 @@
 
   <div class="p-5 bg-gray-800 text-white">
     <div data-tabs-target="tab" id="tab_payload">
-      <%= @request.payload || "[]" %>
+      <pre><%= JSON.pretty_generate(@request.payload || {}) %></pre>
     </div>
 
     <div data-tabs-target="tab" id="tab_headers">
-      <%= @request.headers || "[]" %>
+      <pre><%= JSON.pretty_generate(@request.headers || {}) %></pre>
     </div>
 
     <div data-tabs-target="tab" id="tab_response">
-      <%= @request.response || "[]" %>
+      <pre><%= @request.response || "No response" %></pre>
     </div>
   </div>
 </div>

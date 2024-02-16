@@ -25,7 +25,7 @@ module RailsLiveDashboard
     end
 
     def payload
-      self.content["payload"]
+      self.content["params"]
     end
 
     def headers
