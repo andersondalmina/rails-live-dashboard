@@ -1,3 +1,3 @@
-RailsLiveDashboard.configure do |config| 
+RailsLiveDashboard.configure do |config|
   config.enabled = true
 end

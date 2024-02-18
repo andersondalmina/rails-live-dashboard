@@ -3,3 +3,24 @@
 # This model initially had no columns defined. If you add columns to the
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
+
+one:
+  id: 10
+  type: RailsLiveDashboard::Exception
+  batch_id: d2f1119e-8906-47e5-b8ea-003be4cee995
+  content: "{}"
+  should_show: true
+
+two:
+  id: 20
+  type: RailsLiveDashboard::Exception
+  batch_id: d2f1119e-8906-47e5-b8ea-003be4cee995
+  content: "{}"
+  should_show: true
+
+three:
+  id: 30
+  type: RailsLiveDashboard::Exception
+  batch_id: d2f1119e-8906-47e5-b8ea-003be4cee995
+  content: "{}"
+  should_show: false

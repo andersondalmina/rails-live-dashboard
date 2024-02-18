@@ -3,3 +3,69 @@
 # This model initially had no columns defined. If you add columns to the
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
+
+one:
+  id: 1
+  type: RailsLiveDashboard::Request
+  batch_id: d2f1119e-8906-47e5-b8ea-003be4cee995
+  content:
+    {
+      action: index,
+      allocations: 100,
+      body: {},
+      controller: TestController,
+      db_duration: 1,
+      duration: 2,
+      format: html,
+      headers: {},
+      method: GET,
+      params: { action: index, controller: test },
+      path: "/",
+      status: 200,
+      view_duration: 1,
+    }
+  should_show: true
+
+two:
+  id: 2
+  type: RailsLiveDashboard::Request
+  batch_id: d2f1119e-8906-47e5-b8ea-003be4cee995
+  content:
+    {
+      action: index,
+      allocations: 100,
+      body: {},
+      controller: TestController,
+      db_duration: 1,
+      duration: 2,
+      format: html,
+      headers: {},
+      method: GET,
+      params: { action: index, controller: test },
+      path: "/",
+      status: 200,
+      view_duration: 1,
+    }
+  should_show: true
+
+three:
+  id: 3
+  type: RailsLiveDashboard::Request
+  batch_id: d2f1119e-8906-47e5-b8ea-003be4cee995
+  content:
+    {
+      action: index,
+      allocations: 100,
+      body: {},
+      controller: TestController,
+      db_duration: 1,
+      duration: 2,
+      format: html,
+      headers: {},
+      method: GET,
+      params: { action: index, controller: test },
+      path: "/",
+      status: 200,
+      view_duration: 1,
+    }
+  should_show: true

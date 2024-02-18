@@ -17,13 +17,24 @@ module RailsLiveDashboard
             content: {
               class: @exception.class,
               message: @exception.message,
-              file: @exception.backtrace[0].split(':').first,
-              line: @exception.backtrace[0].split(':')[1],
+              file: file_line[0],
+              line: file_line[1],
               backtrace: @exception.backtrace,
               occurrences: occurrences + 1
             }
           )
         end
+      end
+
+      private
+
+      def file_line
+        return ['', ''] unless @exception.backtrace
+
+        file = @exception.backtrace[0].split(':').first
+        line = @exception.backtrace[0].split(':')[1]
+
+        [file, line]
       end
     end
   end

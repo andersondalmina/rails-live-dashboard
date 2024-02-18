@@ -1,11 +1,12 @@
-require "test_helper"
+require 'test_helper'
 
 module RailsLiveDashboard
   class ExceptionsControllerTest < ActionDispatch::IntegrationTest
     include Engine.routes.url_helpers
 
-    # test "the truth" do
-    #   assert true
-    # end
+    test 'should render exceptions page' do
+      get exceptions_url
+      assert_response :success
+    end
   end
 end
