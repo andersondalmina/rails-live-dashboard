@@ -15,6 +15,8 @@ module RailsLiveDashboard
     def initialize(method, turbo_stream: false)
       super
 
+      return if method.nil?
+
       @classes = CLASSES[method.downcase.to_sym]
       @method = "#{method} #{'- Turbo Stream' if turbo_stream}"
     end

@@ -8,19 +8,19 @@ one:
   id: 10
   type: RailsLiveDashboard::Exception
   batch_id: d2f1119e-8906-47e5-b8ea-003be4cee995
-  content: "{}"
+  content: {}
   should_show: true
 
 two:
   id: 20
   type: RailsLiveDashboard::Exception
   batch_id: d2f1119e-8906-47e5-b8ea-003be4cee995
-  content: "{}"
+  content: {}
   should_show: true
 
 three:
   id: 30
   type: RailsLiveDashboard::Exception
   batch_id: d2f1119e-8906-47e5-b8ea-003be4cee995
-  content: "{}"
+  content: {}
   should_show: false

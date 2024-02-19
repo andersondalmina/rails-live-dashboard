@@ -1,29 +1,31 @@
 module RailsLiveDashboard
   class Exception < Entry
+    attribute :content, Types::ExceptionContent.new
+
     scope :of_class, ->(exception_class) { where("content->>'class' = ?", exception_class) }
 
     def class_name
-      content['class']
+      content.class
     end
 
     def message
-      content['message']
+      content.message
     end
 
     def occurrences
-      content['occurrences']
+      content.occurrences
     end
 
     def file
-      content['file']
+      content.file
     end
 
     def line
-      content['line']
+      content.line
     end
 
     def backtrace
-      content['backtrace']
+      content.backtrace
     end
   end
 end

@@ -13,6 +13,8 @@ module RailsLiveDashboard
     def initialize(status)
       super
 
+      return if status.nil?
+
       @status = status
       @classes = CLASSES.detect { |k, _v| k === status }&.last
     end
