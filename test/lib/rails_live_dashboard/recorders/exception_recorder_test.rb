@@ -1,7 +1,5 @@
 require 'test_helper'
 
-ExceptionStruct = Struct.new(:class, :message, :backtrace)
-
 module RailsLiveDashboard
   class ExceptionRecorderTest < ActiveSupport::TestCase
     setup do
@@ -9,11 +7,9 @@ module RailsLiveDashboard
     end
 
     test 'should create exception entry' do
-      batch_id = SecureRandom.uuid
+      exception = RailsLiveDashboard::Types::ExceptionContent::CONTENT_STRUCT.new
 
-      exception = ExceptionStruct.new
-
-      RailsLiveDashboard::Recorders::ExceptionRecorder.new(batch_id, exception).execute
+      RailsLiveDashboard::Recorders::ExceptionRecorder.new(exception).execute
 
       assert_equal 1, Exception.should_show.count
     end

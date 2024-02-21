@@ -1,0 +1,33 @@
+<div class="flex flex-col mt-10 gap-10">
+  <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+    <div class="px-4 py-6 sm:px-6">
+      <h3 class="text-lg font-semibold leading-7 text-gray-900">Query Details</h3>
+    </div>
+    <div class="border-t border-gray-100">
+      <dl class="divide-y divide-gray-100">
+        <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-900">Date</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @query.created_at.strftime("%Y-%m-%d %H:%M:%S") %></dd>
+        </div>
+        <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-900">SQL</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @query.content.sql %></dd>
+        </div>
+        <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-900">Parameters</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @query.content.parameters %></dd>
+        </div>
+        <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-900">Duration</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+            <%= render RailsLiveDashboard::QueryDurationBadgeComponent.new(@query.content.duration) %>
+          </dd>
+        </div>
+        <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-900">Cached</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @query.content.cached %></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>

@@ -1,21 +1,14 @@
 module RailsLiveDashboard
   module Types
-    class RequestContent < ActiveRecord::Type::Value
+    class QueryContent < ActiveRecord::Type::Value
       PAYLOAD =
         %i[
-          controller
-          action
-          params
-          format
-          method
-          path
-          status
-          headers
-          body
+          name
+          sql
+          parameters
           duration
-          view_duration
-          db_duration
-          allocations
+          kind
+          cached
         ].freeze
 
       CONTENT_STRUCT = Struct.new(*PAYLOAD)

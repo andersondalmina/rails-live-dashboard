@@ -23,7 +23,7 @@ module RailsLiveDashboard
       end
 
       def deserialize(value)
-        decoded = ActiveSupport::JSON.decode(value).symbolize_keys
+        decoded = ActiveSupport::JSON.decode(value)&.symbolize_keys
         sanitized = sanitize_input(decoded)
         CONTENT_STRUCT.new(**sanitized)
       end

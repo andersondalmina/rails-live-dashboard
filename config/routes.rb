@@ -5,4 +5,5 @@ RailsLiveDashboard::Engine.routes.draw do
   resource :clean, only: [:destroy], controller: :clean
   resources :requests, only: %i[index show]
   resources :exceptions, only: %i[index show]
+  resources :queries, only: %i[index show]
 end

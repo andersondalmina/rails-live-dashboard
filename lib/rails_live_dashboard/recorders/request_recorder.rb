@@ -1,14 +1,13 @@
 module RailsLiveDashboard
   module Recorders
     class RequestRecorder
-      def initialize(batch_id, event)
-        @batch_id = batch_id
+      def initialize(event)
         @event = event
       end
 
       def execute
         Request.create(
-          batch_id: @batch_id,
+          batch_id: RailsLiveDashboard::Context.instance.batch_id,
           content: build_content
         )
       end

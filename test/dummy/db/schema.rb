@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_02_13_133517) do
   create_table "rails_live_dashboard_entries", force: :cascade do |t|
-    t.string "type", limit: 20, null: false
+    t.string "type", null: false
     t.string "batch_id", limit: 36, null: false
     t.json "content", null: false
     t.boolean "should_show", default: true
