@@ -34,15 +34,15 @@ $ rails db:migrate
 
 To mount the RailsLiveDashboard routes and access the dashboard, add the following to your routes file:
 
-```bash
-$ mount RailsLiveDashboard::Engine, at: '/live-dashboard'
+```ruby
+mount RailsLiveDashboard::Engine, at: '/live-dashboard'
 ```
 
 ## Configuration
 
 After installing RailsLiveDashboard, a configuration file will be created at config/initializers/rails_live_dashboard.rb:
 
-```bash
+```ruby
 RailsLiveDashboard.configure do |config|
   config.enabled = true
 end
