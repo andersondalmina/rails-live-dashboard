@@ -9,7 +9,7 @@ RailsLiveDashboard is a real-time debug dashboard for Rails applications. It pro
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "rails-live-dashboard"
+gem 'rails_live_dashboard'
 ```
 
 We recommend adding it within your development gem group.
@@ -35,7 +35,7 @@ $ rails db:migrate
 To mount the RailsLiveDashboard routes and access the dashboard, add the following to your routes file:
 
 ```ruby
-mount RailsLiveDashboard::Engine, at: '/live-dashboard'
+mount RailsLiveDashboard::Engine, at: '/live-dashboard' if Rails.env.development?
 ```
 
 ## Configuration
