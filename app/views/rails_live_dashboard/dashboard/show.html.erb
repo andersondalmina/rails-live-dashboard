@@ -1,13 +1,27 @@
 <div class="mt-10">
   <h3 class="text-base font-semibold leading-6 text-gray-900">System information</h3>
-  <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
-    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-      <dt class="truncate text-sm font-medium text-gray-500">Ruby version</dt>
-      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @ruby_version %></dd>
+  <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-4">
+    <div class="overflow-hidden rounded-lg bg-gradient-to-r from-orange-700 to-orange-500 px-4 py-5 shadow sm:p-6">
+      <dt class="truncate text-sm font-medium text-white">Ruby version</dt>
+      <dd class="mt-1 text-3xl font-semibold tracking-tight text-white"><%= @ruby_version %></dd>
     </div>
-    <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-      <dt class="truncate text-sm font-medium text-gray-500">Rails version</dt>
-      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @rails_version %></dd>
+    <div class="overflow-hidden rounded-lg bg-gradient-to-r from-red-700 to-red-500 px-4 py-5 shadow sm:p-6">
+      <dt class="truncate text-sm font-medium text-white">Rails version</dt>
+      <dd class="mt-1 text-3xl font-semibold tracking-tight text-white"><%= @rails_version %></dd>
     </div>
   </dl>
+</div>
+
+<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 mt-10">
+  <turbo-frame id="slow_requests_widget" src="<%= widgets_slowest_requests_path %>">
+    <div class="flex justify-center items-center h-64 w-full rounded-lg bg-white shadow-sm">
+      <%= lucide_icon('loader-2', class: 'h-16 w-16 text-gray-800 animate-spin') %>
+    </div>
+  </turbo-frame>
+
+  <turbo-frame id="slowest_queries_widget" src="<%= widgets_slowest_queries_path %>">
+    <div class="flex justify-center items-center h-64 w-full rounded-lg bg-white shadow-sm">
+      <%= lucide_icon('loader-2', class: 'h-16 w-16 text-gray-800 animate-spin') %>
+    </div>
+  </turbo-frame>
 </div>
