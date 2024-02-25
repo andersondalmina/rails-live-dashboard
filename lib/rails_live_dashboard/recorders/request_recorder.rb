@@ -20,7 +20,7 @@ module RailsLiveDashboard
           {
             headers: payload[:request].headers.env.reject { |key| key.to_s.include?('.') },
             body: payload[:response]&.body || nil,
-            duration: @event.duration,
+            duration: @event.duration.round(2),
             allocations: @event.allocations
           }
         )
