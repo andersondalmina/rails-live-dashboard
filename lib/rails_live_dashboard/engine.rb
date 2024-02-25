@@ -2,12 +2,8 @@ module RailsLiveDashboard
   class Engine < ::Rails::Engine
     isolate_namespace RailsLiveDashboard
 
-    initializer 'rails_live_dashboard', after: :load_config_initializers do |app|
+    initializer 'rails_live_dashboard', after: :load_config_initializers do |_app|
       next unless RailsLiveDashboard.configuration.enabled
-
-      app.routes.prepend do
-        mount RailsLiveDashboard::Engine, at: '/live-dashboard'
-      end
     end
 
     initializer 'rails_live_dashboard.assets.precompile' do |app|

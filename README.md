@@ -1,10 +1,8 @@
 # RailsLiveDashboard
 
-Short description and motivation.
+RailsLiveDashboard is a real-time debug dashboard for Rails applications. It provides insights into requests, queries, and exceptions, empowering developers to debug their applications effectively in development environments.
 
-## Usage
-
-How to use my plugin.
+**Note: This gem is not recommended for production use, as it may potentially slow down your application and significantly increase your database size.**
 
 ## Installation
 
@@ -14,21 +12,51 @@ Add this line to your application's Gemfile:
 gem "rails-live-dashboard"
 ```
 
-And then execute:
+We recommend adding it within your development gem group.
+
+Then execute:
 
 ```bash
-$ bundle
+$ bundle install
 ```
 
-Or install it yourself as:
+Install migrations into your project:
 
 ```bash
-$ gem install rails-live-dashboard
+$ rails rails_live_dashboard:install:migrations
 ```
+
+Then run the migration:
+
+```bash
+$ rails db:migrate
+```
+
+To mount the RailsLiveDashboard routes and access the dashboard, add the following to your routes file:
+
+```bash
+$ mount RailsLiveDashboard::Engine, at: '/live-dashboard'
+```
+
+## Configuration
+
+After installing RailsLiveDashboard, a configuration file will be created at config/initializers/rails_live_dashboard.rb:
+
+```bash
+RailsLiveDashboard.configure do |config|
+  config.enabled = true
+end
+```
+
+You can configure it by setting:
+
+- enabled: A boolean value to enable or disable RailsLiveDashboard subscribers.
 
 ## Contributing
 
-Contribution directions go here.
+We welcome contributions from the community to help enhance RailsLiveDashboard. Whether it's through bug fixes, feature enhancements, or documentation improvements, your contributions are invaluable in making RailsLiveDashboard even better!
+
+To contribute, simply fork the repository, make your changes, and submit a pull request.
 
 ## License
 
