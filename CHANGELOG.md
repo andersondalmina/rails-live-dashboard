@@ -1,5 +1,10 @@
 # Changelog
 
-## 0.1.0
+## [v0.1.1](https://github.com/andersondalmina/rails-live-dashboard/compare/v0.1.0...v0.1.1) - 2024-02-27
 
-- Initial beta release
+* Fix mount engine routes on tests
+* Add dependencies to gemspec
+
+## [v0.1.0](https://github.com/andersondalmina/rails-live-dashboard/releases/tag/v0.1.0) - 2024-02-25
+
+* Initial beta release
