@@ -1,8 +1,16 @@
 PATH
   remote: .
   specs:
-    rails_live_dashboard (0.1.0)
+    rails_live_dashboard (0.1.1)
+      cssbundling-rails
+      jsbundling-rails
+      lucide-rails (~> 0.2.0)
+      propshaft
+      puma
       rails (>= 7.1.3)
+      stimulus-rails
+      turbo-rails
+      view_component
 
 GEM
   remote: https://rubygems.org/
@@ -147,6 +155,8 @@ GEM
     nio4r (2.7.0)
     nokogiri (1.16.2-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.2-x86_64-linux)
+      racc (~> 1.4)
     parallel (1.24.0)
     parser (3.3.0.5)
       ast (~> 2.4.1)
@@ -223,6 +233,7 @@ GEM
     ruby2_keywords (0.0.5)
     smart_properties (1.17.0)
     sqlite3 (1.7.2-x86_64-darwin)
+    sqlite3 (1.7.2-x86_64-linux)
     stimulus-rails (1.3.3)
       railties (>= 6.0.0)
     stringio (3.1.0)
@@ -247,6 +258,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin
+  x86_64-linux
 
 DEPENDENCIES
   cssbundling-rails

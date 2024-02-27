@@ -18,5 +18,17 @@ Gem::Specification.new do |spec|
     Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   end
 
+  spec.required_ruby_version = '>= 2.7'
+
+  spec.add_dependency 'cssbundling-rails'
+  spec.add_dependency 'jsbundling-rails'
+  spec.add_dependency 'lucide-rails', '~> 0.2.0'
+  spec.add_dependency 'propshaft'
+  spec.add_dependency 'puma'
   spec.add_dependency 'rails', '>= 7.1.3'
+  spec.add_dependency 'stimulus-rails'
+  spec.add_dependency 'turbo-rails'
+  spec.add_dependency 'view_component'
+
+  spec.add_development_dependency 'sqlite3'
 end
