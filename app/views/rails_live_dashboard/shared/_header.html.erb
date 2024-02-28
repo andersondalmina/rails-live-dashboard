@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
-        <%= link_to clean_path, title: 'Clear all data', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white' do %>
+        <%= link_to rails_live_dashboard.clean_path, title: 'Clear all data', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white' do %>
           <span class="sr-only">Clear records</span>
           <%= lucide_icon('trash', class: 'h-6 w-6') %>
         <% end %>
@@ -21,23 +21,23 @@
     </div>
 
     <nav class="hidden lg:flex lg:space-x-8 lg:py-2" aria-label="Global">
-      <%= link_to 'Dashboard', dashboard_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(dashboard_path)) %>
-      <%= link_to 'Requests', requests_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(requests_path)) %>
-      <%= link_to 'Exceptions', exceptions_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(exceptions_path)) %>
-      <%= link_to 'Queries', queries_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(queries_path)) %>
+      <%= link_to 'Dashboard', rails_live_dashboard.dashboard_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(dashboard_path)) %>
+      <%= link_to 'Requests', rails_live_dashboard.requests_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(requests_path)) %>
+      <%= link_to 'Exceptions', rails_live_dashboard.exceptions_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(exceptions_path)) %>
+      <%= link_to 'Queries', rails_live_dashboard.queries_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(queries_path)) %>
     </nav>
   </div>
 
   <nav class="hidden" aria-label="Global" id="mobile-menu" data-reveal-target="item">
     <div class="space-y-1 px-2 pb-3 pt-2">
-      <%= link_to 'Clear all data', clean_path, title: 'Clear all data', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium' %>
+      <%= link_to 'Clear all data', rails_live_dashboard.clean_path, title: 'Clear all data', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium' %>
     </div>
     <hr class='my-2 border-gray-500' />
-    <div class="space-y-1 px-2 pb-3 pt-2">  
-      <%= link_to 'Dashboard', dashboard_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(dashboard_path)) %>
-      <%= link_to 'Requests', requests_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(requests_path)) %>
-      <%= link_to 'Exceptions', exceptions_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(exceptions_path)) %>
-      <%= link_to 'Queries', queries_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(queries_path)) %>
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <%= link_to 'Dashboard', rails_live_dashboard.dashboard_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(dashboard_path)) %>
+      <%= link_to 'Requests', rails_live_dashboard.requests_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(requests_path)) %>
+      <%= link_to 'Exceptions', rails_live_dashboard.exceptions_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(exceptions_path)) %>
+      <%= link_to 'Queries', rails_live_dashboard.queries_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(queries_path)) %>
     </div>
   </nav>
 </header>
