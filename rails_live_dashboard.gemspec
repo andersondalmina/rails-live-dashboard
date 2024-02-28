@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors     = ['Anderson Dalmina']
   spec.email       = ['andersondalmina@gmail.com']
   spec.homepage    = 'https://github.com/andersondalmina/rails-live-dashboard'
-  spec.summary     = 'Realtime dashboard for Rails applications'
-  spec.description = 'Realtime dashboard for Rails applications'
+  spec.summary     = 'Realtime debug dashboard for Rails applications'
+  spec.description = 'Realtime debug dashboard for Rails applications'
   spec.license     = 'MIT'
 
   spec.metadata['homepage_uri'] = spec.homepage
