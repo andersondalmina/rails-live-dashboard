@@ -1,0 +1,25 @@
+<li>
+  <%= link_to rails_live_dashboard.query_path(query), 'data-turbo-frame': :_top, class: 'relative flex justify-between gap-x-6 px-4 py-5 hover:bg-gray-50 sm:px-6' do %>
+    <div class="flex min-w-0 gap-x-4">
+      <div class="min-w-0 flex-auto">
+        <p class="text-sm leading-6 font-semibold text-gray-900">
+          <%= query.content.name %>
+        </p>
+        <p class="mt-2 flex text-sm leading-6 text-gray-900">
+          <%= query.content.sql[0..40] %>...
+        </p>
+      </div>
+    </div>
+    <div class="flex shrink-0 items-center gap-x-4">
+      <div class="hidden sm:flex sm:flex-col sm:items-end">
+        <p class="text-sm leading-6 text-gray-900">
+          <%= render RailsLiveDashboard::QueryDurationBadgeComponent.new(query.content.duration) %>
+        </p>
+        <p class="mt-1 text-xs leading-5 text-gray-500">
+          <%= query.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        </p>
+      </div>
+      <%= lucide_icon('chevron-right', class: 'h-5 w-5 flex-none text-gray-400') %>
+    </div>
+  <% end %>
+</li>

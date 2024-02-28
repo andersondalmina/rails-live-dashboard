@@ -10,34 +10,7 @@
       </th>
     </tr>
   </thead>
-  <tbody class="divide-y divide-gray-200 bg-white">
-    <% if @queries.empty? %>
-      <tr>
-        <td colspan="5">
-          <p class="p-5 text-center">No queries registered</p>
-        </td>
-      </tr>
-    <% end %>
-
-    <% @queries.each do |query| %>
-    <tr>
-      <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-800">
-        <%= query.content.name %>
-      </td>
-      <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-        <%= query.content.sql[0..80] %>
-        <%= "..." if query.content.sql.size > 80 %>
-      </td>
-      <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-        <%= render RailsLiveDashboard::QueryDurationBadgeComponent.new(query.content.duration) %>
-      </td>
-      <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-        <%= query.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-      </td>
-      <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-        <%= link_to 'Show', rails_live_dashboard.query_path(query), class: 'text-indigo-600 hover:text-indigo-900' %>
-      </td>
-    </tr>
-    <% end %>
+  <tbody id="queries" class="divide-y divide-gray-200 bg-white">
+    <%= render @queries %>
   </tbody>
 </table>

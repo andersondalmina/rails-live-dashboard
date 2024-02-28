@@ -12,30 +12,30 @@
         <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-900">Method</dt>
           <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-            <%= render RailsLiveDashboard::RequestMethodBadgeComponent.new(@request.method, turbo_stream: @request.turbo_stream?) %>
+            <%= render RailsLiveDashboard::RequestMethodBadgeComponent.new(@request.content.method, turbo_stream: @request.turbo_stream?) %>
           </dd>
         </div>
         <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-900">Controller</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @request.controller %></dd>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @request.content.controller %></dd>
         </div>
         <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-900">Action</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @request.controller_action %></dd>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @request.content.action %></dd>
         </div>
         <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-900">Path</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @request.path %></dd>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @request.content.path %></dd>
         </div>
         <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-900">Status</dt>
           <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-            <%= render RailsLiveDashboard::RequestStatusBadgeComponent.new(@request.status_code) %>
+            <%= render RailsLiveDashboard::RequestStatusBadgeComponent.new(@request.content.status) %>
           </dd>
         </div>
         <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-900">Duration</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @request.duration %> ms</dd>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @request.content.duration %> ms</dd>
         </div>
       </dl>
     </div>

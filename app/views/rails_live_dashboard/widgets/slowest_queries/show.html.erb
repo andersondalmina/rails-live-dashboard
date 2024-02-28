@@ -9,33 +9,7 @@
       <% end %>
 
       <% @queries.each do |query| %>
-      <li>
-        <a href="<%= query_path(query) %>" target="_top" class="relative flex justify-between gap-x-6 px-4 py-5 hover:bg-gray-50 sm:px-6">
-          <div class="flex min-w-0 gap-x-4">
-            <div class="min-w-0 flex-auto">
-              <p class="text-sm leading-6 font-semibold text-gray-900">
-                <%= query.content.name %>
-              </p>
-              <p class="mt-2 flex text-sm leading-6 text-gray-900">
-                <%= query.content.sql[0..40] %>...
-              </p>
-            </div>
-          </div>
-          <div class="flex shrink-0 items-center gap-x-4">
-            <div class="hidden sm:flex sm:flex-col sm:items-end">
-              <p class="text-sm leading-6 text-gray-900">
-                <%= render RailsLiveDashboard::QueryDurationBadgeComponent.new(query.content.duration) %>
-              </p>
-              <p class="mt-1 text-xs leading-5 text-gray-500">
-                <%= query.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-              </p>
-            </div>
-            <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-            </svg>
-          </div>
-        </a>
-      </li>
+        <%= render partial: 'query', locals: { query: query } %>
       <%end %>
     </ul>
   </dl>

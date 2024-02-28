@@ -1,3 +1,5 @@
+<%= turbo_stream_from "request_list" %>
+
 <div class="mt-10">
   <div class="mt-8 flow-root">
     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -15,30 +17,8 @@
                 </th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200 bg-white">
-              <% if @requests.empty? %>
-                <tr>
-                  <td colspan="5">
-                    <p class="p-5 text-center">No request registered</p>
-                  </td>
-                </tr>
-              <% end %>
-              
-              <% @requests.each do |req| %>
-              <tr>
-                <td class="whitespace-nowrap py-4 pl-4 pr-3 sm:pl-6">
-                  <%= render RailsLiveDashboard::RequestMethodBadgeComponent.new(req.method) %>
-                </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= req.path %></td>
-                <td class="whitespace-nowrap px-3 py-4">
-                  <%= render RailsLiveDashboard::RequestStatusBadgeComponent.new(req.status_code) %>
-                </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= req.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                  <%= link_to 'Show', request_path(req), class: 'text-indigo-600 hover:text-indigo-900' %>
-                </td>
-              </tr>
-              <% end %>
+            <tbody id="requests" class="divide-y divide-gray-200 bg-white">
+              <%= render @requests %>
             </tbody>
           </table>
         </div>

@@ -5,6 +5,9 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
+  <%= turbo_refresh_method_tag :morph %>
+  <%= turbo_refresh_scroll_tag :preserve %>
+
   <%= stylesheet_link_tag    "rails_live_dashboard/application", data_turbo_track: 'reload', media: "all" %>
   <%= javascript_include_tag "rails_live_dashboard/application", data_turbo_track: 'reload', defer: true %>
 </head>
