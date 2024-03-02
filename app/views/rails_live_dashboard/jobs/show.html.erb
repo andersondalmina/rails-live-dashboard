@@ -1,0 +1,58 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+  <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+    <div class="px-4 py-5 sm:px-6">
+      <h3 class="text-lg font-semibold text-gray-900"><%= @job.content.job_name %></h3>
+      <p class="mt-1 text-gray-500">Job ID: <%= @job.content.job_id %></p>
+    </div>
+
+    <dl class="divide-y divide-gray-100">
+      <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-900">Date</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @job.created_at.strftime("%Y-%m-%d %H:%M:%S") %></dd>
+      </div>
+      <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-900">Duration</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @job.content.duration %> ms</dd>
+      </div>
+    </dl>
+  </div>
+
+  <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+    <div class="px-4 py-5 sm:px-6">
+      <p class="font-semibold">Job History</p>
+    </div>
+    <div class="px-4 py-5 sm:p-6">
+      <div class="flow-root">
+        <ul role="list" class="-mb-8">
+          <% @job.content.history.each do |history| %>
+          <li>
+            <div class="relative pb-8">
+              <% unless history == @job.content.history.last %>
+              <span class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+              <% end %>
+
+              <div class="relative flex space-x-3">
+                <div>
+                  <%= job_history_icon(history["status"]) %>
+                </div>
+                <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+                  <div>
+                    <p class="text-sm text-gray-500">Changed status to <b class="text-black"><%= history["status"] %></b></p>
+                  </div>
+                  <div class="whitespace-nowrap text-right text-sm text-gray-500">
+                    <time><%= DateTime.parse(history["date"]).strftime("%Y-%m-%d %H:%M:%S") %></time>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-10">
+  <%= render 'tabs' %>
+</div>
