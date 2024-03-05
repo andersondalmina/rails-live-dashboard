@@ -8,6 +8,8 @@ module RailsLiveDashboard
           params
           status
           queue_name
+          started_at
+          finished_at
           duration
           db_duration
           error

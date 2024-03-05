@@ -3,7 +3,7 @@ module RailsLiveDashboard
     class ActiveJobSubscriber
       def initialize
         enqueue
-        perform_start
+        start
         perform
         discard
       end
@@ -24,7 +24,7 @@ module RailsLiveDashboard
         end
       end
 
-      def perform_start
+      def start
         ActiveSupport::Notifications.subscribe 'perform_start.active_job' do |event|
           Recorders::Jobs::StartRecorder.new(event).execute
         rescue StandardError => e

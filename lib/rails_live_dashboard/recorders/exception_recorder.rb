@@ -30,9 +30,10 @@ module RailsLiveDashboard
       end
 
       def backtrace_data
-        return ['', '', ''] unless @exception.backtrace
-
         backtrace = Rails.backtrace_cleaner.clean(@exception.backtrace)
+
+        return ['', '', ''] if backtrace.empty?
+
         file = backtrace[0].split(':').first
         line = backtrace[0].split(':')[1]
 

@@ -22,14 +22,11 @@ module RailsLiveDashboard
             params: @event.payload[:job].arguments || {},
             status: :enqueued,
             queue_name: @event.payload[:job].queue_name,
-            duration: duration,
-            db_duration: @event.payload[:db_runtime],
+            started_at: nil,
+            finished_at: nil,
+            duration: nil,
             history: build_history
           }
-        end
-
-        def duration
-          (@event.end - @event.time).round(2)
         end
 
         def build_history

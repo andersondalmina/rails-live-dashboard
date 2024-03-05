@@ -4,45 +4,27 @@ module RailsLiveDashboard
       class StartRecorder
         def initialize(event)
           @event = event
+          @job = Job.same(@event.payload[:job].job_id).first
         end
 
         def execute
-          raise Exceptions::EntryNotFound.new(:job, @event.payload[:job].job_id) if job.nil?
+          raise Exceptions::EntryNotFound.new(:job, @event.payload[:job].job_id) if @job.nil?
 
-          job.update(content: build_content)
+          build_content
+          build_history
+
+          @job.update!(content: @job.content.to_h)
         end
 
         private
 
-        def job
-          @job = Job.find_by(batch_id: @event.payload[:job].job_id)
-        end
-
         def build_content
-          {
-            job_name: @event.payload[:job].class,
-            job_id: @event.payload[:job].job_id,
-            params: @event.payload[:job].arguments || {},
-            status: :started,
-            queue_name: @event.payload[:job].queue_name,
-            duration: duration,
-            db_duration: @event.payload[:db_runtime],
-            history: build_history
-          }
-        end
-
-        def duration
-          (@event.end - @event.time).round(2)
-        end
-
-        def parameters
-          return unless @event.payload[:job].arguments.any?
-
-          @event.payload[:job].arguments
+          @job.content.status = :started
+          @job.content.started_at = Time.now
         end
 
         def build_history
-          job.content.history.push({
+          @job.content.history.push({
             status: :started,
             date: Time.now
           })
