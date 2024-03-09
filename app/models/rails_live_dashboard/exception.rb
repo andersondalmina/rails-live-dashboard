@@ -2,30 +2,8 @@ module RailsLiveDashboard
   class Exception < Entry
     attribute :content, Types::ExceptionContent.new
 
-    scope :of_class, ->(exception_class) { where("content->>'class' = ?", exception_class) }
-
-    def class_name
-      content.class
-    end
-
-    def message
-      content.message
-    end
-
-    def occurrences
-      content.occurrences
-    end
-
-    def file
-      content.file
-    end
-
-    def line
-      content.line
-    end
-
-    def backtrace
-      content.backtrace
-    end
+    scope :same, lambda { |exception_class, message|
+      where("content->>'class' = ? AND content->>'message' = ?", exception_class, message)
+    }
   end
 end

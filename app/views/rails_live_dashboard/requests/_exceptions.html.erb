@@ -17,13 +17,13 @@
           <tbody class="divide-y divide-gray-200 bg-white">
           <% @exceptions.each do |exception| %>
             <tr>
-              <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+              <td class="whitespace-nowrap py-4 pl-4 pr-3 sm:pl-6">
                 <div class="min-w-0 flex-auto">
-                  <p class="text-sm font-semibold leading-6 text-gray-900">
-                    <%= exception.class_name %>
+                  <p class="text-base font-semibold text-gray-900">
+                    <%= exception.content.class %>
                   </p>
-                  <p class="mt-1 truncate text-xs leading-5 text-gray-500">
-                    <%= exception.message %>
+                  <p class="mt-1 text-sm text-gray-500">
+                    <%= exception.content.message %>
                   </p>
                 </div>
               </td>

@@ -2,12 +2,8 @@ module RailsLiveDashboard
   module Subscribers
     class ActionControllerSubscriber
       def initialize
-        ActiveSupport::Notifications.subscribe 'start_processing.action_controller' do |_event|
-          RailsLiveDashboard::Context.instance.start
-        end
-
         ActiveSupport::Notifications.subscribe 'process_action.action_controller' do |event|
-          next if event.payload[:controller].include?('RailsLiveDashboard')
+          next if should_skip(event)
 
           handle_event(event)
         rescue StandardError => e
@@ -17,11 +13,13 @@ module RailsLiveDashboard
 
       private
 
+      def should_skip(event)
+        event.payload[:controller].include?('RailsLiveDashboard')
+      end
+
       def handle_event(event)
         Recorders::RequestRecorder.new(event).execute
         Recorders::ExceptionRecorder.new(event.payload[:exception_object]).execute if event.payload[:exception_object]
-
-        RailsLiveDashboard::Context.instance.reset
       end
     end
   end

@@ -3,6 +3,7 @@ require 'test_helper'
 module RailsLiveDashboard
   class QueryRecorderTest < ActiveSupport::TestCase
     setup do
+      Current.batch_id = 12_345
       Query.destroy_all
     end
 

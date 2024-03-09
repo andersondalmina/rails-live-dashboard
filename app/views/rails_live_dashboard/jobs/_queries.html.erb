@@ -1,0 +1,11 @@
+<% if @queries.empty? %>
+  <p class="py-10 text-center">No queries for this job</p>
+<% else %>
+  <div class="flow-root">
+    <div class="overflow-x-auto">
+      <div class="inline-block min-w-full align-middle">
+        <%= render 'rails_live_dashboard/queries/list' %>
+      </div>
+    </div>
+  </div>
+<% end %>

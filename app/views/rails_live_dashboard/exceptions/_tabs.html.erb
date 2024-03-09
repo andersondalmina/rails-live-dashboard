@@ -9,8 +9,6 @@
   </nav>
 
   <div class="p-5 bg-gray-800 text-white">
-    <div data-tabs-target="tab" id="tab_backtrace">
-      <%= @exception.backtrace.join("\n") || "[]" %>
-    </div>
+    <pre data-tabs-target="tab" id="tab_backtrace"><%= @exception.content.backtrace.join("\n") || "[]" %></pre>
   </div>
 </div>
