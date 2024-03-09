@@ -23,6 +23,8 @@ module RailsLiveDashboard
       end
 
       def cast(value)
+        return value if value.is_a?(CONTENT_STRUCT)
+
         sanitized = sanitize_input(value)
         CONTENT_STRUCT.new(**sanitized)
       end

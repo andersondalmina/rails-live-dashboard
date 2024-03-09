@@ -8,7 +8,7 @@ module RailsLiveDashboard
 
         def execute
           Job.create(
-            batch_id: @event.payload[:job].job_id,
+            batch_id: Current.batch_id,
             content: build_content
           )
         end
@@ -22,9 +22,6 @@ module RailsLiveDashboard
             params: @event.payload[:job].arguments || {},
             status: :enqueued,
             queue_name: @event.payload[:job].queue_name,
-            started_at: nil,
-            finished_at: nil,
-            duration: nil,
             history: build_history
           }
         end

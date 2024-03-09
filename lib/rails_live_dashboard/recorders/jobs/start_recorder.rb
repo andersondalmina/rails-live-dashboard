@@ -10,21 +10,27 @@ module RailsLiveDashboard
         def execute
           raise Exceptions::EntryNotFound.new(:job, @event.payload[:job].job_id) if @job.nil?
 
+          Current.batch_id = @job.batch_id
+
           build_content
           build_history
 
-          @job.update!(content: @job.content.to_h)
+          @job.update(content: content)
         end
 
         private
 
+        def content
+          @content ||= @job.content
+        end
+
         def build_content
-          @job.content.status = :started
-          @job.content.started_at = Time.now
+          content.status = :started
+          content.started_at = Time.now
         end
 
         def build_history
-          @job.content.history.push({
+          content.history.push({
             status: :started,
             date: Time.now
           })

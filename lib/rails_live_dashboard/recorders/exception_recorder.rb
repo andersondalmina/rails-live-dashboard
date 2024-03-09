@@ -9,7 +9,7 @@ module RailsLiveDashboard
         Exception.same(@exception.class, @exception.message).update_all(should_show: false)
 
         Exception.create(
-          batch_id: RailsLiveDashboard::Context.instance.batch_id,
+          batch_id: Current.batch_id,
           content: build_content
         )
       end
@@ -30,9 +30,9 @@ module RailsLiveDashboard
       end
 
       def backtrace_data
-        backtrace = Rails.backtrace_cleaner.clean(@exception.backtrace)
+        return ['', '', ''] if @exception.backtrace.nil?
 
-        return ['', '', ''] if backtrace.empty?
+        backtrace = Rails.backtrace_cleaner.clean(@exception.backtrace)
 
         file = backtrace[0].split(':').first
         line = backtrace[0].split(':')[1]

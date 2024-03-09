@@ -4,40 +4,41 @@ module RailsLiveDashboard
       class DiscardRecorder
         def initialize(event)
           @event = event
+          @job = Job.same(@event.payload[:job].job_id).first
         end
 
         def execute
-          raise Exceptions::EntryNotFound.new(:job, @event.payload[:job].job_id) if job.nil?
+          raise Exceptions::EntryNotFound.new(:job, @event.payload[:job].job_id) if @job.nil?
 
-          job.update(content: build_content)
+          build_content
+          build_history
+
+          @job.update(content: content)
         end
 
         private
 
-        def job
-          @job = Job.find_by(batch_id: @event.payload[:job].job_id)
+        def content
+          @content ||= @job.content
         end
 
         def build_content
-          job.content.merge(
-            {
-              status: :discarded,
-              finished_at: Time.now,
-              duration: duration,
-              history: build_history
-            }
-          )
-        end
-
-        def duration
-          (Time.now - job.content.started_at).round(2)
+          content.status = :discarded
+          content.finished_at = Time.now
+          content.duration = duration
         end
 
         def build_history
-          job.content.history.push({
-            status: :discarted,
+          content.history.push({
+            status: :discarded,
             date: Time.now
           })
+        end
+
+        def duration
+          return 0 if content.started_at.nil?
+
+          (content.finished_at - Time.parse(content.started_at)).in_milliseconds.round
         end
       end
     end

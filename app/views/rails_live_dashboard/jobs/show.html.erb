@@ -10,11 +10,11 @@
         <dt class="text-sm font-medium text-gray-900">Date</dt>
         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @job.created_at.strftime("%Y-%m-%d %H:%M:%S") %></dd>
       </div>
-      
+
       <% if @job.performed? || @job.discarted? %>
       <div class="p-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-900">Duration</dt>
-        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @job.content.duration %> ms</dd>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= job_duration_text(@job.content.duration) %></dd>
       </div>
       <% end %>
     </dl>
@@ -58,4 +58,8 @@
 
 <div class="mt-10">
   <%= render 'tabs' %>
+</div>
+
+<div class="mt-10">
+  <%= render 'relateds' %>
 </div>

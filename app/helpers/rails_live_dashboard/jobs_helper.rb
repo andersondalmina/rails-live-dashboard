@@ -19,5 +19,11 @@ module RailsLiveDashboard
                     class: 'h-8 w-8 p-1.5 rounded-full flex items-center justify-center ring-1 ring-inset bg-orange-50 text-orange-700 ring-orange-700/10')
       end
     end
+
+    def job_duration_text(duration)
+      return "#{duration} ms" if duration < 1000
+
+      "#{(duration / 1000).round} s"
+    end
   end
 end

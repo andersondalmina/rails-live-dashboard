@@ -2,9 +2,11 @@ class TestJob < ApplicationJob
   queue_as :default
 
   def perform(test_param, named_param:)
-    p test_param
-    p named_param
+    logger.info("Test job params: #{test_param} - #{named_param}")
 
-    sleep 1.minute
+    sleep 10.seconds
+
+    tests = Test.all
+    logger.info("Found tests: #{tests.count}")
   end
 end

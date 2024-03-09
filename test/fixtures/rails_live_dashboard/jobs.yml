@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+
+one:
+  id: 11
+  type: RailsLiveDashboard::Job
+  batch_id: d2f1119e-8906-47e5-b8ea-003be4cee995
+  content:
+    job_name: Test
+    job_id: 100
+    params: {}
+    status: enqueued
+    queue_name: TestQueue
+    history:
+      - status: :enqueued
+        date: 2024-03-07 23:29:19.427627966
+  should_show: true
+

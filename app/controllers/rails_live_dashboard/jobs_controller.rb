@@ -6,6 +6,7 @@ module RailsLiveDashboard
 
     def show
       @job = Job.find(params[:id])
+      @queries = Query.where(batch_id: @job.batch_id)
     end
   end
 end
