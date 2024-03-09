@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_05_160727) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_13_133517) do
   create_table "rails_live_dashboard_entries", force: :cascade do |t|
     t.string "type", null: false
     t.string "batch_id", limit: 36, null: false
@@ -19,12 +19,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_160727) do
     t.datetime "created_at", null: false
     t.index ["batch_id"], name: "index_rails_live_dashboard_entries_on_batch_id"
     t.index ["created_at"], name: "index_rails_live_dashboard_entries_on_created_at"
-  end
-
-  create_table "tests", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

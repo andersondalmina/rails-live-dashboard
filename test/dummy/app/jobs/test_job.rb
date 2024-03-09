@@ -6,7 +6,6 @@ class TestJob < ApplicationJob
 
     sleep 10.seconds
 
-    tests = Test.all
     logger.info("Found tests: #{tests.count}")
   end
 end

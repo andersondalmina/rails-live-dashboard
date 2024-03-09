@@ -3,18 +3,18 @@ require 'ostruct'
 
 module RailsLiveDashboard
   module Jobs
-    class StartRecorderTest < ActiveSupport::TestCase
+    class DiscardRecorderTest < ActiveSupport::TestCase
       setup do
         Current.batch_id = 12_345
         Job.destroy_all
         create_enqueue_job
       end
 
-      test 'should set job as started when found job' do
-        Recorders::Jobs::StartRecorder.new(job_event).execute
+      test 'should set job as discarded when found job' do
+        Recorders::Jobs::DiscardRecorder.new(job_event).execute
 
         assert_equal 1, Job.count
-        assert_equal 'started', Job.first.content.status
+        assert_equal 'discarded', Job.first.content.status
         assert_equal 2, Job.first.content.history.size
       end
 
@@ -23,7 +23,7 @@ module RailsLiveDashboard
         event.payload[:job].job_id = 54_321
 
         assert_raise Exceptions::EntryNotFound do
-          Recorders::Jobs::StartRecorder.new(event).execute
+          Recorders::Jobs::DiscardRecorder.new(event).execute
         end
       end
 
