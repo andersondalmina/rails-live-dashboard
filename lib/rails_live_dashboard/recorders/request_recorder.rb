@@ -7,7 +7,7 @@ module RailsLiveDashboard
 
       def execute
         Request.create(
-          batch_id: RailsLiveDashboard::Context.instance.batch_id,
+          batch_id: Current.batch_id,
           content: build_content
         )
       end

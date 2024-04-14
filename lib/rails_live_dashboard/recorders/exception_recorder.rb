@@ -6,10 +6,10 @@ module RailsLiveDashboard
       end
 
       def execute
-        Exception.of_class(@exception.class).update_all(should_show: false)
+        Exception.same(@exception.class, @exception.message).update_all(should_show: false)
 
         Exception.create(
-          batch_id: RailsLiveDashboard::Context.instance.batch_id,
+          batch_id: Current.batch_id,
           content: build_content
         )
       end
@@ -17,25 +17,27 @@ module RailsLiveDashboard
       private
 
       def build_content
-        occurrences = Exception.of_class(@exception.class).count
+        occurrences = Exception.same(@exception.class, @exception.message).count
 
         {
           class: @exception.class,
           message: @exception.message,
-          file: file_line[0],
-          line: file_line[1],
-          backtrace: @exception.backtrace,
+          file: backtrace_data[1],
+          line: backtrace_data[2],
+          backtrace: backtrace_data[0],
           occurrences: occurrences + 1
         }
       end
 
-      def file_line
-        return ['', ''] unless @exception.backtrace
+      def backtrace_data
+        return ['', '', ''] if @exception.backtrace.nil?
 
-        file = @exception.backtrace[0].split(':').first
-        line = @exception.backtrace[0].split(':')[1]
+        backtrace = Rails.backtrace_cleaner.clean(@exception.backtrace)
 
-        [file, line]
+        file = backtrace[0].split(':').first
+        line = backtrace[0].split(':')[1]
+
+        [backtrace, file, line]
       end
     end
   end

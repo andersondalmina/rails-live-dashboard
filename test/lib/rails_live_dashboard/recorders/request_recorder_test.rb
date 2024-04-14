@@ -3,6 +3,7 @@ require 'test_helper'
 module RailsLiveDashboard
   class RequestRecorderTest < ActiveSupport::TestCase
     setup do
+      Current.batch_id = 12_345
       Request.destroy_all
     end
 
