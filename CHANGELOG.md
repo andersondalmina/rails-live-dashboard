@@ -1,5 +1,10 @@
 # Changelog
 
+## [v0.2.0](https://github.com/andersondalmina/rails-live-dashboard/compare/v0.1.2...v0.2.0) - 2024-04-14
+
+* Implements jobs monitors
+* Improve batch_id
+
 ## [v0.1.2](https://github.com/andersondalmina/rails-live-dashboard/compare/v0.1.1...v0.1.2) - 2024-02-28
 
 * Fix route prefixs
