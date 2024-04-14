@@ -24,5 +24,9 @@ module RailsLiveDashboard
     initializer 'rails_live_dashboard.action_record' do
       Subscribers::ActiveRecordSubscriber.new
     end
+
+    initializer 'rails_live_dashboard.action_job' do
+      Subscribers::ActiveJobSubscriber.new
+    end
   end
 end

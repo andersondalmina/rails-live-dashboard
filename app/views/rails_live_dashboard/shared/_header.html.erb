@@ -25,6 +25,7 @@
       <%= link_to 'Requests', rails_live_dashboard.requests_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(requests_path)) %>
       <%= link_to 'Exceptions', rails_live_dashboard.exceptions_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(exceptions_path)) %>
       <%= link_to 'Queries', rails_live_dashboard.queries_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(queries_path)) %>
+      <%= link_to 'Jobs', rails_live_dashboard.jobs_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white inline-flex items-center rounded-md py-2 px-3 text-sm font-medium', 'bg-gray-900 text-white': current_page?(jobs_path)) %>
     </nav>
   </div>
 
@@ -38,6 +39,7 @@
       <%= link_to 'Requests', rails_live_dashboard.requests_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(requests_path)) %>
       <%= link_to 'Exceptions', rails_live_dashboard.exceptions_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(exceptions_path)) %>
       <%= link_to 'Queries', rails_live_dashboard.queries_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(queries_path)) %>
+      <%= link_to 'Jobs', rails_live_dashboard.jobs_path, class: class_names('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md py-2 px-3 text-base font-medium', 'bg-gray-900 text-white': current_page?(jobs_path)) %>  
     </div>
   </nav>
 </header>
