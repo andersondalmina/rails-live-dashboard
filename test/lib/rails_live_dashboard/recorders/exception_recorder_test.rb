@@ -3,6 +3,7 @@ require 'test_helper'
 module RailsLiveDashboard
   class ExceptionRecorderTest < ActiveSupport::TestCase
     setup do
+      Current.batch_id = 12_345
       Exception.destroy_all
     end
 
