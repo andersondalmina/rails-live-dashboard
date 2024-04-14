@@ -4,6 +4,18 @@
 
 RailsLiveDashboard is a real-time debug dashboard for Rails applications. It provides insights into requests, queries, and exceptions, empowering developers to debug their applications effectively in development environments.
 
+## Modules Implemented
+
+- Dashboard: Show environment ruby and rails version, slowest requests and slowest queries.
+
+- Requests: Show requests data, like controller, action, status code, params and duration.
+
+- Exceptions: Show exception data, like traces and file.
+
+- Queries: Show queries data, like SQL and duration.
+
+- Jobs: Show jobs data, like name, job_id, paramers, history, status and duration.
+
 **Note: This gem is not recommended for production use, as it may potentially slow down your application and significantly increase your database size.**
 
 ![Dashboard screen](docs/dashboard.png "Dashboard screen")

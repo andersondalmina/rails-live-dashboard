@@ -15,3 +15,6 @@ Layout/AccessModifierIndentation:
 
 Layout/MultilineMethodCallIndentation:
   Enabled: false
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
